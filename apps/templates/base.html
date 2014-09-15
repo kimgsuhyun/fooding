@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Likelion Flaskr</title>
+
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css"> 
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+      {%for name in %}
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  });
+  </script>
+</head>
+
+<body>
+	{%for i in name%}
+	<a>음식명:{{ i }}</a>
+	{%endfor%}
+	{%for j in na%}
+	<a>나트륨 : {{j}} </a>
+	{%endfor%}
+
+
+</div>
+	<a>일일권장 섭취량 {{height}} {{weight}} cal : {{useca}} </a>
+
+<!-- layout extends -->
+{% block layout %}
+{% endblock %}
+
+{% block contents %}
+
+{% endblock %}
+	<script src="/static/js/jquery-1.11.1.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/base.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+{% extends "layout.html" %}
+
+{% block contents %}
+<div class="llCommentCreate">
+	<form action="{{ url_for('comment_create',  article_id=id )}}" method="post" class="add-entry">
+		<div class="form-group">
+			<label for="article_create_title">email</label>
+			<input type="text" name="email" class="form-control" id="article_create_title" placeholder="email을 입력하세요.">
+		</div>
+		<div class="form-group">
+			<label for="article_create_title">password</label>
+			<input type="text" name="password" class="form-control" id="article_create_title" placeholder="password을 입력하세요.">
+		</div>
+		<div class="form-group">
+			<label for="article_create_author">작성자</label>
+			<input type="text" name="author" class="form-control" id="article_create_author" placeholder="작성자를 입력하세요.">
+		</div>
+
+		<div class="form-group">
+			<label for="article_create_title">내용</label>
+			<textarea name="content" id="article_create_content" class="form-control" placeholder="내용을 입력하세요."></textarea>
+		</div>
+
+
+		<button type="submit" class="btn btn-default">글쓰기</button>
+		
+	</form>
+</div>
+
+{% endblock %}

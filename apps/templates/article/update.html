@@ -1,0 +1,30 @@
+
+{% extends "layout.html" %}
+
+{% block contents %}
+	<div class="llArticleCreate">
+		<form action="{{ url_for('article_update' ,  id=id) }}" method="post" class="add-entry">
+			<div class="form-group">
+				<label for="article_create_title">제목</label>
+				<input type="text" name="title" class="form-control" id="article_create_title" value="{{ article.title }}">
+			</div>
+
+			<div class="form-group">
+				<label for="article_create_author">작성자</label>
+				<input type="text" name="author" class="form-control" id="article_create_author" value="{{ article.author }}">
+			</div>
+
+			<div class="form-group">
+				<label for="article_create_category">카테고리</label>
+				<input type="text" name="category" class="form-control" id="article_create_category" value="{{ article.category }}">
+			</div>
+
+			<div class="form-group">
+				<label for="article_create_title">내용</label>
+				<textarea name="content" id="article_create_content" class="form-control" >{{ article.content}}</textarea>
+			</div>
+
+			<button type="submit" class="btn btn-default">수정하기</button>
+		</form>
+	</div>
+{% endblock %}
