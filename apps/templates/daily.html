@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block graph %}
+
+{%for j in regseq.reg%}
+	<a> 사진 : <img src="{{ url_for('photo_get_resized', blob_key=j.photo) }}"> </a>
+	<a> 끼니 : {{j.eat_type}} </a>
+	<a> 먹은 량 : {{j.count}} </a>
+	<a> 등록시간 : {{j.eat_date_year}}년 {{j.eat_date_month}}월 {{j.eat_date_day}}일 </a>
+	<a> 현재시간 : {{j.regdate}} </a>
+
+{%endfor%}
+
+<a>기준제공량{{reg_foodname.food_amount}}</a>
+<a>칼로리{{reg_foodname.food_cal}}</a>
+<a>나트륨{{reg_foodname.food_na}}</a>
+<a>당{{reg_foodname.food_sugar}}</a>
+<a>지방{{reg_foodname.food_fat}}</a>
+<a>포화지방{{reg_foodname.food_satur}}</a>
+<a>단백질{{reg_foodname.food_protein}}</a>
+
+<a>탄수화물+단백질+지방{{totalinput}}</a>
+<a>탄수화물의 비율{{persugar}}% 단백질의 비율{{perprotein}}% 지방의 비율{{perfat}}%<a>
+
+
+{% endblock %}

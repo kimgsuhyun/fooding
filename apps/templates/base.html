@@ -1,74 +1,64 @@
 <!DOCTYPE html>
 <html lang="ko-kr">
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-	<title>Likelion Flaskr</title>
-
-	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/style.css"> 
-
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script>
-  $(function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-      {%for name in %}
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  });
-  </script>
+
+	<title>Likelion Flaskr</title>
+
 </head>
 
 <body>
-	{%for i in name%}
-	<a>음식명:{{ i }}</a>
-	{%endfor%}
-	{%for j in na%}
-	<a>나트륨 : {{j}} </a>
-	{%endfor%}
-
-
-</div>
-	<a>일일권장 섭취량 {{height}} {{weight}} cal : {{useca}} </a>
-
-<!-- layout extends -->
-{% block layout %}
-{% endblock %}
-
-{% block contents %}
+<script>  
+$(function() {
+$( "#datepicker" ).datepicker();
+});
+</script>
+<!-- go to foodregister -->
+{% block input %}
 
 {% endblock %}
-	<script src="/static/js/jquery-1.11.1.min.js"></script>
-	<script src="/static/js/bootstrap.min.js"></script>
-	<script src="/static/js/base.js"></script>
+<!-- go to graph -->
+{% block graph %}
+
+{% endblock %}
 
 
+{% block error %}
+
+{% endblock %}
+
+
+
+{% block info %}
+
+{% endblock %}
+
+{% block result %}
+
+{% endblock %}
+
+
+<a href="{{url_for('article_create')}}">그림 등록 </a>
+
+<a href="{{url_for('abc')}}">영양섭취기준 등록하기 </a>
+
+<a href="{{url_for('search')}}"> ?등록하기> </a>
+<a href="{{url_for('graph', seq=1)}}">그래프(eat_type=1)</a>
+<a href="{{url_for('graph', seq=2)}}">그래프(eat_type=2)</a>
+<a href="{{url_for('graph', seq=3)}}">그래프(eat_type=3)</a>
+
+
+<form action="{{ url_for('datesearch' ) }}" method="get">
+    <div><p>Date: <input type="text" id="datepicker" name="eat_date"></p></div>
+<input type="Submit" value="검색">
+
+
+</form>
 </body>
 </html>

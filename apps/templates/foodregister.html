@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block input %}
+
+  <script>
+
+  $(function() {
+    var availableTags = [
+      {% for name in foods %}
+      "{{ name.food_name }}",
+      {% endfor %}
+    ];
+    $( "#tagss" ).autocomplete({
+      source: availableTags
+    });
+  });
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+
+  </script>
+
+<!-- maybe new window.... -->
+      <form action="foodsearch" method="get">
+        <input id="tagss" type="text" name="test_get">
+        <input id="tagss" type="Submit" value="검색">
+    </form>
+
+
+
+
+<form action="{{ url_for('regi',  seq=registerfood.seq ) }}" method="get">
+   
+      
+    사진 : <img src="{{ url_for('photo_get_resized', blob_key=photo_key) }}">
+    <a>기준제공량<input name="food_amount" type="text" value="{{registerfood.food_amount}}"></a>
+    <a>칼로리<input name="food_cal" type="text" value="{{registerfood.food_cal}}"></a>
+    <a>나트륨<input name="food_na" type="text" value="{{registerfood.food_na}}"></a>
+    <a>설탕<input name="food_sugar" type="text" value="{{registerfood.food_sugar}}"></a>
+    <a>지방<input name="food_fat" type="text" value="{{registerfood.food_fat}}"></a>
+    <a>포화지방<input name="food_satur" type="text" value="{{registerfood.food_satur}}"></a>
+    <a>단백질<input name="food_protein" type="text" value="{{registerfood.food_protein}}"></a>
+    
+    <div>끼니입력 (1=아침 2=점심 3=저녁):<input type="text" name="eat_type"></div>
+    <div>먹은 량 : <input type="text" name ="count"></div>
+    <textarea name="description" placeholder="음식에대한 설명을 적으세요"></textarea>
+    <div><p>Date: <input type="text" id="datepicker" name="eat_date"></p></div>
+
+    <input type="Submit" value="등록">
+   
+</form>
+
+
+{% endblock %}

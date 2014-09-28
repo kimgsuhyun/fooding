@@ -13,6 +13,8 @@ class Rda(db.Model):
     protein = db.Column(db.Integer)
     fat = db.Column(db.Integer)
     sater_fat = db.Column(db.Integer)
+    age = db.Column(db.Integer)
+    gender = db.Column(db.Integer)
 
 class Food(db.Model):
     seq = db.Column(db.Integer, primary_key=True)
@@ -45,9 +47,11 @@ class Food_reg(db.Model):
     user = db.relationship('User',backref=db.backref('uconnect', cascade='all, delete-orphan', lazy='dynamic'))
     food_seq = db.Column(db.Integer, db.ForeignKey('food.seq'))
     food = db.relationship('Food', backref=db.backref('foodconnect', cascade='all, delete-orphan', lazy='dynamic'))
-    eat_date = db.Column(db.DateTime())
+    eat_date_year = db.Column(db.Integer)
+    eat_date_month = db.Column(db.Integer)
+    eat_date_day = db.Column(db.Integer)
     eat_type = db.Column(db.Integer)
-    photo = db.Column(db.String(255))
+    photo = db.Column(db.LargeBinary)
     count = db.Column(db.Integer)
     description = db.Column(db.Text())
     regdate = db.Column(db.DateTime(), default=db.func.now())

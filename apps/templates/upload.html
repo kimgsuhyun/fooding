@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block error %}
+<form action="{{ url_for('abc') }}" method="get">
+    <a>성별(여자면 1 남자면 2)<input name="sex" type="text" ></a>
+    <a>나이대(20대면 2 30대면 3)<input name="age" type="text" ></a>
+    <a>열량<input name="cal" type="text"></a>
+    <a>단백질<input name="pro" type="text"></a>
+    <a>지질<input name="fat" type="text" ></a>
+    <a>당질<input name="su" type="text"></a>
+    <a>나트륨<input name="na" type="text"></a>
+    <a>성별<input name="sex" type="text" ></a>
+    <a>나이대(20대면 2 30대면 3)<input name="age" type="text" ></a>
+<input type="Submit" value="등록">
+
+
+{% endblock %}
